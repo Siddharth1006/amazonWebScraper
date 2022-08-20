@@ -1,0 +1,2 @@
+1. Create package.json 
+$ npm init -y <Enter>
