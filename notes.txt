@@ -1,2 +1,40 @@
 1. Create package.json 
 $ npm init -y <Enter>
+
+2.Created init file
+$ git init 
+
+3. Now create a new repository in your github account.
+Once done adding README.md , LICENSE etc.. stuff. Assuming you added some data to README or added an extra file in the remote repo.
+But now you don't have all that in you remote repo. So, what to do?
+You pull that data to remote repo.
+
+"main" - is the MAIN branch name! NOT master! 
+Using both will create multiple branch names which will later cause a problem!
+
+S1: Set remote repo: $ git remote add origin <REMOTE_REPO_URL>
+S2: Pull changes: git pull origin <branchname> --allow-unrelated-histories //makes sure all unrelated histories are also allowed
+S3: Now you can git add . , git commit -m "" and git push
+
+Err : "There is no tracking information for the current branch"
+    You could specify what branch you want to pull:
+        #git pull origin main
+    (OR)
+    You could set it up so that your local main branch tracks github main branch as an upstream:
+        $git branch -u origin/main (if STILL in main branch)
+        $git branch -u origin/main main (if checked out of MAIN branch)
+        $git pull    
+
+NOW TO MAKE SURE WE push all changes to "main" branch, simply 
+    Option1: Delete master branch if there exists (AFTER PULLING those changes to main branch)
+        #To delete a branch without merging
+        $ git branch -D <branchname>
+
+        #To delete a branch after merging (branchname can be master , or whatever)
+        $ git branch -d <branchname>
+
+        //We Haave deleted the branch locally. Now, we HAVE TO PUSH Those CHANGES to remote repo.
+        //So that there also the <branch> doesn't exit!
+        $ git push -d origin main
+
+    Option2: Do the following: https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/
