@@ -38,3 +38,10 @@ NOW TO MAKE SURE WE push all changes to "main" branch, simply
         $ git push -d origin main
 
     Option2: Do the following: https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/
+
+
+3) $ npm install express nodemon request-promise
+express = backend framework for node.js
+request-promise - need for making API requests
+nodemon - reloads the terminal every time we make edits to code
+
