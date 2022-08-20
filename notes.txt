@@ -64,3 +64,8 @@ const dotenv = require("dotenv");
 dotenv.config(); // Trying to connect to the .env file 
 
 Now, we can use process.env.<KEY> or whatever we need to.
+
+
+app.get() vs router.get()?
+https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get 
+//BRILLIANT EXPLANATION!
