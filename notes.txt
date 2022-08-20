@@ -47,3 +47,20 @@ nodemon - reloads the terminal every time we make edits to code
 
 To run request-promise , we need request as well
 $ npm install request 
+
+What is Scraper API?
+Scraper API = Allows us to scrape HTML from any website and turn it into useful json information.
+https://www.scraperapi.com/ => Visit the website.
+(ALREADY have an account via GITHUB!!)
+
+After logging in, copy the API key.
+Keep it safe and don't let any one access it.
+Best Solution to the problem : .env file!
+
+$ npm install dotenv --save
+
+Add the following in index.js
+const dotenv = require("dotenv");
+dotenv.config(); // Trying to connect to the .env file 
+
+Now, we can use process.env.<KEY> or whatever we need to.
