@@ -45,3 +45,5 @@ express = backend framework for node.js
 request-promise - need for making API requests
 nodemon - reloads the terminal every time we make edits to code
 
+To run request-promise , we need request as well
+$ npm install request 
