@@ -9,11 +9,6 @@ const app = express();
 const PORT = process.env.PORT || 5000; // PORT for deploying the application
 //===============================================================================
 
-const generateScraperUrl = (API_KEY) =>
-    `http://api.scraperapi.com?api_key=${API_KEY}&autoparse=true`;
-
-module.exports = { generateScraperUrl };
-
 //======================================================================================
 
 //helps parse json input

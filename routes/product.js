@@ -3,8 +3,9 @@
 const router = require("express").Router();
 //used to make API requests
 const request = require("request-promise");
-//requiring index.js file
-const ind = require("../index");
+
+const generateScraperUrl = (API_KEY) =>
+    `http://api.scraperapi.com?api_key=${API_KEY}&autoparse=true`;
 
 // : indicates that productId is dynamic
 //async (req , res) is a callback function
@@ -19,7 +20,7 @@ router.get("/:productId", async (req, res) => {
     try {
         //response from ScraperAPI
         const response = await request(
-            `${ind.generateScraperUrl(
+            `${generateScraperUrl(
                 apiKey
             )}&url=https://www.amazon.com/dp/${productId}`
         );
