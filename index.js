@@ -24,6 +24,8 @@ app.use(express.json());
 
 //END POINTS
 const productRoute = require("./routes/product");
+const productReviewsRoute = require("./routes/productreviews");
+const productOffersRoute = require("./routes/productoffers");
 
 //every express application needs a route.
 app.get("/", (req, res) => {
@@ -31,9 +33,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/products", productRoute);
-
+app.use("/products", productReviewsRoute);
+app.use("/products", productOffersRoute);
 
 //====================================================================================
 //We need to make our server listen on a specific port
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-

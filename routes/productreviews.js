@@ -6,15 +6,10 @@ const request = require("request-promise");
 //importing the "baseUrl" variable from index.js file
 const { baseUrl } = require("../index");
 
-//----------------------------------------------------------------------------
-console.log(baseUrl); //fetching the baseUrl variable from index.js file
-// console.log(`${ind.baseUrl}&url=https://www.amazon.com/dp/B09DGRPM53`)
-//-------------------------------------------------------------------------------
-
 // : indicates that productId is dynamic
 //async (req , res) is a callback function
 
-router.get("/:productId", async (req, res) => {
+router.get("/:productId/reviews", async (req, res) => {
     //get Productid from parameters
     //productId is going to be populated in req.params
     const { productId } = req.params;
@@ -23,7 +18,7 @@ router.get("/:productId", async (req, res) => {
     try {
         //response from ScraperAPI
         const response = await request(
-            `${baseUrl}&url=https://www.amazon.com/dp/${productId}`
+            `${baseUrl}&url=https://www.amazon.com/product-reviews/${productId}`
         );
 
         //send response back from our server
