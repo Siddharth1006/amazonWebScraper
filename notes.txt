@@ -69,3 +69,7 @@ Now, we can use process.env.<KEY> or whatever we need to.
 app.get() vs router.get()?
 https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get 
 //BRILLIANT EXPLANATION!
+
+
+NOTE - Instead of using baseUrl and my personal API key, we need users to use their own API key. So, we make a dynamic base URl and
+remove our API key from .env cuz now we will getting/passing it as a paramter from req.query when we are sending a request.

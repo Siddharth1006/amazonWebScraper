@@ -3,19 +3,16 @@
 
 //express for creating backend application
 const express = require("express");
-
-//importing the dotenv file for storing the important keys
-const dotenv = require("dotenv");
-dotenv.config();
-
 const app = express();
 
 //===============================================================================
 const PORT = process.env.PORT || 5000; // PORT for deploying the application
 //===============================================================================
 
-const baseUrl = `http://api.scraperapi.com?api_key=${process.env.API_KEY}&autoparse=true`;
-exports.baseUrl = baseUrl; //exporting this variable
+const generateScraperUrl = (API_KEY) =>
+    `http://api.scraperapi.com?api_key=${API_KEY}&autoparse=true`;
+
+module.exports = { generateScraperUrl };
 
 //======================================================================================
 
@@ -26,15 +23,17 @@ app.use(express.json());
 const productRoute = require("./routes/product");
 const productReviewsRoute = require("./routes/productreviews");
 const productOffersRoute = require("./routes/productoffers");
+const productSearchResultsRoute = require("./routes/productsearchresults");
 
 //every express application needs a route.
 app.get("/", (req, res) => {
     res.send("Welcome to AMAZON Scraper API");
 });
 
-app.use("/products", productRoute);
-app.use("/products", productReviewsRoute);
-app.use("/products", productOffersRoute);
+app.use("/products", productRoute); //Route1
+app.use("/products", productReviewsRoute); //Route2
+app.use("/products", productOffersRoute); //Route3
+app.use("/search", productSearchResultsRoute); //Route4
 
 //====================================================================================
 //We need to make our server listen on a specific port

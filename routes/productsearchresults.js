@@ -1,4 +1,4 @@
-//ROUTE 3 - GET Product Offers
+//ROUTE 4 - GET Product Search Results
 //---------------------------------
 const router = require("express").Router();
 //used to make API requests
@@ -9,19 +9,20 @@ const ind = require("../index");
 // : indicates that productId is dynamic
 //async (req , res) is a callback function
 
-router.get("/:productId/offers", async (req, res) => {
+router.get("/:searchquery", async (req, res) => {
     //get Productid from parameters
     //productId is going to be populated in req.params
-    const { productId } = req.params;
-    const { apiKey } = req.query;
+    const { searchQuery } = req.params;
 
     //try-catch block
     try {
         //response from ScraperAPI
+
+        //s indicates search and '?' is used for the query
         const response = await request(
             `${ind.generateScraperUrl(
                 apiKey
-            )}&url=https://www.amazon.com/gp/offer-listing/${productId}`
+            )}&url=https://www.amazon.com/s?k=${searchQuery}`
         );
 
         //send response back from our server
