@@ -22,7 +22,7 @@ const productSearchResultsRoute = require("./routes/productsearchresults");
 
 //every express application needs a route.
 app.get("/", (req, res) => {
-    res.send("Welcome to AMAZON Scraper API");
+    res.send("Yay! Welcome to AMAZON Scraper API");
 });
 
 app.use("/products", productRoute); //Route1
@@ -32,4 +32,4 @@ app.use("/search", productSearchResultsRoute); //Route4
 
 //====================================================================================
 //We need to make our server listen on a specific port
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`YAY!!! Server running on port: ${PORT} :)`));

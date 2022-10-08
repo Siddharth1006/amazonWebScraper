@@ -3,6 +3,7 @@
 const router = require("express").Router();
 //used to make API requests
 const request = require("request-promise");
+const apikey = '18257f0f78fb8abb4463a1fae1c9978a'
 
 const generateScraperUrl = (API_KEY) =>
     `http://api.scraperapi.com?api_key=${API_KEY}&autoparse=true`;
